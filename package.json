@@ -3,6 +3,10 @@
 	"displayName": "code-notebook-plantuml",
 	"description": "Plantuml support for markdown notebook in vscode",
 	"version": "0.0.1",
+	"publisher": "shivaprasanth",
+	"repository": {
+		"url": "https://github.com/cedric05/code-plantuml-renderer.git"
+	},
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.69.0"
