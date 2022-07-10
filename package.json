@@ -1,0 +1,49 @@
+{
+	"name": "code-notebook-plantuml",
+	"displayName": "code-notebook-plantuml",
+	"description": "Plantuml support for markdown notebook in vscode",
+	"version": "0.0.1",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.69.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"notebookRenderer": [
+			{
+				"id": "vscode-samples.markdown-it.emoji-extension",
+				"displayName": "Markdown it Emoji renderer",
+				"entrypoint": {
+					"extends": "vscode.markdown-it-renderer",
+					"path": "./out/plantuml.js"
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/markdown-it": "^12.2.3",
+		"@types/vscode": "^1.69.0",
+		"@types/vscode-notebook-renderer": "^1.57.8",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"eslint": "^8.18.0",
+		"typescript": "^4.7.4",
+		"ts-loader": "^9.3.1",
+		"webpack": "^5.73.0",
+		"webpack-cli": "^4.10.0",
+		"markdown-it-plantuml": "^1.4.1"
+	}
+}
